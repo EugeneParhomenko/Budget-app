@@ -1,1 +1,11 @@
-<p>add works!</p>
+<div class="forw-wrapper">
+    <form *ngIf="form" class="horisontal-form" [formGroup]="form" (ngSubmit)="add()">
+        <div class="form-item">
+            <input type="number" formControlName="amount" placeholder="Введите сумму">
+        </div>
+        <div class="form-item">
+            <input type="text" formControlName="title" placeholder="Введите описание">
+        </div>
+        <button type="submit" class="submit-form" [disabled]="form.invalid">Добавить</button>
+    </form>
+</div>

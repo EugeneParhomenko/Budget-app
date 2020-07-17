@@ -1,8 +1,8 @@
 <div class="application-wrapper">
 
-    <div class="wrapper-header">
+    <div class="wrapper-header" [ngClass]="{'positive': total > 0, 'negative': total < 0 }">
         <div class="title">Состояние бюджета:</div>
-        <div class="total">0</div>
+        <div class="total">{{ total }}</div>
     </div>
 
     <edm-add></edm-add>
@@ -11,16 +11,16 @@
         <div class="budget-list">
 
             <div class="income-list">
-                <div class="item">
-                    <div class="title"></div>
-                    <div class="amount"></div>
+                <div class="item" *ngFor="let l of incomeList">
+                    <div class="title">{{ l.title }}</div>
+                    <div class="amount">{{ l.amount }}</div>
                 </div>
             </div>
 
             <div class="outcome-list">
-                <div class="item">
-                    <div class="title"></div>
-                    <div class="amount"></div>
+                <div class="item" *ngFor="let l of outcomeList">
+                    <div class="title">{{ l.title }}</div>
+                    <div class="amount">{{ l.amount }}</div>
                 </div>
             </div>
 

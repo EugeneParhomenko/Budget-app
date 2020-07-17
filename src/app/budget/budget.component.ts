@@ -19,39 +19,32 @@ export class BudgetComponent implements OnInit, OnDestroy {
   incomeList: Bill[] = [];
   outcomeList: Bill[] = [];
 
-  renderIncome() {
+  showEdit: boolean = false;
+
+  render() {
     this.s1 = this.budgetService.getList()
     .subscribe((list: Bill[]) => {
       list.filter((i) => {
         const t = Object.assign({}, i);
-        console.log(t);
-        if(t.type = 'income'){
-          return this.incomeList.push(t);
+        if(t.type == 'income'){
+          this.incomeList.push(t);
+          this.total = this.total + t.amount;
+        } 
+        if(t.type == 'outcome'){
+          this.outcomeList.push(t);
+          this.total = this.total - t.amount;
         } 
       });
-      console.log('Render INCOME');
-      console.log(this.incomeList);
     });
   }
 
-  renderOutcome() {
-    this.s1 = this.budgetService.getList()
-    .subscribe((list: Bill[]) => {
-      list.filter((i) => {
-        const t = Object.assign({}, i);
-        if(t.type = 'outcome'){
-          return this.outcomeList.push(t);
-        } 
-      });
-      console.log('Render OUTCOME');
-      console.log(this.outcomeList);
-    });
+  toggleEdit(show:boolean) {
+    return show = !show;
   }
   
 
   ngOnInit(): void {
-    this.renderOutcome();
-    this.renderIncome();
+    this.render();
   }
 
   ngOnDestroy() {

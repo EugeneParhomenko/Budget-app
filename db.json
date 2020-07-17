@@ -11,6 +11,12 @@
         "title": "Зарплата 2",
         "type": "income",
         "amount": 1000
+      },
+      {
+        "id": 3,
+        "title": "растраты",
+        "type": "outcome",
+        "amount": 750
       }
     ]
   }
