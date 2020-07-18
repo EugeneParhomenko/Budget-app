@@ -16,16 +16,16 @@ export class BudgetService {
         return this.http.get(this.serverUrl + 'bill');
     }
 
-    add(note: Bill):Observable<any> {
-        return this.http.post(this.serverUrl + `bill`, note)
+    add(bill: Bill):Observable<any> {
+        return this.http.post(this.serverUrl + `bill`, bill)
     }
 
-    update(note: Bill):Observable<any> {
-        return this.http.put(this.serverUrl + `bill/${note.id}`, note)
+    update(bill: Bill):Observable<any> {
+        return this.http.put(this.serverUrl + `bill/${bill.id}`, bill)
     }
 
-    getItem(noteID:string){
-        return this.http.get(this.serverUrl + `bill/${noteID}`);
+    getItem(id:string){
+        return this.http.get(this.serverUrl + `bill/${id}`);
     }
 
     delete(url: string = ''): Observable<any> {

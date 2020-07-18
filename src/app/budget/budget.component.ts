@@ -16,12 +16,18 @@ export class BudgetComponent implements OnInit, OnDestroy {
 
   total = 0;
   s1:Subscription;
+  s2:Subscription;
   incomeList: Bill[] = [];
   outcomeList: Bill[] = [];
+  bill: Bill;
 
   showEdit: boolean = false;
 
   render() {
+    this.incomeList = [];
+    this.outcomeList = [];
+    this.total = 0;
+
     this.s1 = this.budgetService.getList()
     .subscribe((list: Bill[]) => {
       list.filter((i) => {
@@ -38,8 +44,23 @@ export class BudgetComponent implements OnInit, OnDestroy {
     });
   }
 
-  toggleEdit(show:boolean) {
-    return show = !show;
+  delete(id: string){
+    this.budgetService.delete(`bill/${id}`).subscribe(
+      ()=>{
+        console.log(`${id} deleted`);
+        this.render();
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  edit(id:string) {
+    this.s2 = this.budgetService.getItem(id)
+      .subscribe((bill: Bill) => {
+        this.bill = bill;
+        console.log(this.bill);
+        this.showEdit = true;
+      });
   }
   
 
@@ -50,6 +71,9 @@ export class BudgetComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if(this.s1) {
       this.s1.unsubscribe();
+    }
+    if(this.s2) {
+      this.s2.unsubscribe();
     }
   }
 
