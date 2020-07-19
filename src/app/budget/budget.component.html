@@ -3,6 +3,7 @@
     <div class="wrapper-header" [ngClass]="{'positive': total > 0, 'negative': total < 0 }">
         <div class="title">Состояние бюджета:</div>
         <div class="total">{{ total }}</div>
+        <div class="joke" [ngClass]="{'active': total < 0 }">Похоже ВАШИ финансы поют романсы</div>
     </div>
 
     <edm-add (render)="render()"></edm-add>
@@ -29,4 +30,4 @@
         </div>
     </div>
 </div>
-<edm-edit *ngIf="showEdit" [(showEdit)]="showEdit" [bill]="bill" (render)="render()"></edm-edit>
+<edm-edit *ngIf="showEdit" (toggleEdit)="toggleEdit()" [bill]="bill" (render)="render()"></edm-edit>

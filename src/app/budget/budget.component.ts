@@ -44,7 +44,9 @@ export class BudgetComponent implements OnInit, OnDestroy {
     });
   }
 
-
+  toggleEdit(){
+    this.showEdit = !this.showEdit;
+  }
 
   delete(id: string){
     this.budgetService.delete(`bill/${id}`).subscribe(

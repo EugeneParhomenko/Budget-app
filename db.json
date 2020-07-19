@@ -3,37 +3,37 @@
     {
       "amount": 1000,
       "type": "income",
-      "title": "Зар23323",
+      "title": "Зарплата за 20.06",
       "id": 1
     },
     {
       "amount": 1000,
       "type": "income",
-      "title": "Зарплата 3",
+      "title": "Зарплата за 21.06",
       "id": 2
     },
     {
       "amount": 750,
       "type": "outcome",
-      "title": "растраты new",
+      "title": "Посиделки с друзьями",
       "id": 3
     },
     {
       "amount": 250,
       "type": "outcome",
-      "title": "fsdfsdfsff",
+      "title": "Покупка игры",
       "id": 4
     },
     {
       "amount": 1000,
       "type": "outcome",
-      "title": "weqweqweqwew",
+      "title": "Подарок девушке",
       "id": 5
     },
     {
       "amount": 200,
       "type": "outcome",
-      "title": "sdfsdfsdfsf",
+      "title": "Зашел в МАК",
       "id": 6
     }
   ]

@@ -35,6 +35,20 @@ html, body {
         background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
         margin: 0 0 30px;
         padding: 50px 0;
+        position: relative;
+
+        .joke {
+            position: absolute;
+            bottom: 15px;
+            font-size: 14px;
+            color: #e83a3a;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .joke.active {
+            opacity: 1;
+        }
 
         .title {
             font-size: 16px;

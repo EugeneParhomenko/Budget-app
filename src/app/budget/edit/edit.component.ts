@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class EditComponent implements OnInit, OnDestroy {
   
-  @Input() showEdit:boolean;
+  @Output() toggleEdit = new EventEmitter<any>();
   @Input() bill:Bill;
   @Output() render = new EventEmitter<any>();
 
@@ -23,7 +23,7 @@ export class EditComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
   closePopup(){
-    this.showEdit = false;
+    this.toggleEdit.emit();
   }
 
   change(){
