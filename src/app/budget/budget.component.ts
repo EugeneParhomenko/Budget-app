@@ -44,6 +44,8 @@ export class BudgetComponent implements OnInit, OnDestroy {
     });
   }
 
+
+
   delete(id: string){
     this.budgetService.delete(`bill/${id}`).subscribe(
       ()=>{
@@ -58,7 +60,6 @@ export class BudgetComponent implements OnInit, OnDestroy {
     this.s2 = this.budgetService.getItem(id)
       .subscribe((bill: Bill) => {
         this.bill = bill;
-        console.log(this.bill);
         this.showEdit = true;
       });
   }

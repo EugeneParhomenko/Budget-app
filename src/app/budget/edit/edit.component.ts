@@ -40,11 +40,11 @@ export class EditComponent implements OnInit, OnDestroy {
     this.s1 = this.budgetService.update(bill)
       .subscribe(() => {
         this.render.emit();
-        this.showEdit = false;
         this.form.setValue({
           amount: '',
           title: ''
         });
+        this.closePopup();
       });
   }
 

@@ -116,17 +116,36 @@ html, body {
         padding: 0;
         position: relative;
 
+        .budget-list::-webkit-scrollbar {
+            width: 7px;
+            border-radius: 0;
+        }
+        .budget-list::-webkit-scrollbar-thumb {
+            border: 1px solid transparent;
+            border-radius: 6px;
+            background: #969696;
+    
+        }
+        .budget-list::-webkit-scrollbar-track {
+            border: none;
+            box-shadow: none;
+            background: #f4f4f4;
+        }
+
         .budget-list {
             display: flex;
             flex-direction: row;
             align-items: flex-start;
             justify-content: flex-start;
-            margin: 0;
+            margin: 0 50px;
+            overflow-x: hidden;
+            overflow-y: overlay;
+            max-height: calc(100vh - 360px);
 
             .income-list,
             .outcome-list {
                 flex-basis: 50%;
-                padding: 0 70px;
+                padding: 0 30px;
 
                 .item {
                     width: 100%;
